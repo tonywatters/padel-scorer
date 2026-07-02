@@ -30,35 +30,37 @@
     .scr.on { display: flex; }
 
     /* ---- SETUP ---- */
-    #s-setup { gap: 3vh; padding: 4vh 8vw; }
-    .s-title { font-size: 3.6vh; font-weight: 600; color: #666; letter-spacing: 0.12em; text-transform: uppercase; }
-    .s-field { width: 100%; display: flex; flex-direction: column; gap: 0.6vh; }
-    .s-lbl { font-size: 2.6vh; text-transform: uppercase; letter-spacing: 0.1em; padding-left: 2px; }
-    .s-lbl.a { color: #4ade80; }
-    .s-lbl.b { color: #fb923c; }
+    #s-setup { gap: 2.4vh; padding: 4vh 8vw; }
+    .s-eyebrow { font-size: 2.2vh; font-weight: 600; color: #666; letter-spacing: 0.14em; text-transform: uppercase; }
+    .s-heading { font-size: 4.6vh; font-weight: 800; color: #fff; margin-top: -0.6vh; }
+    .s-field { width: 100%; display: flex; flex-direction: column; gap: 0.6vh; margin-top: 1vh; }
+    .s-lbl { font-size: 2.6vh; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; padding-left: 2px; }
+    .s-lbl.a { color: #8b5cf6; }
+    .s-lbl.b { color: #4ade80; }
     .s-inp {
       width: 100%; padding: 1.6vh 2vw;
-      background: #1c1c1c; border: 1px solid #2a2a2a;
-      border-radius: 10px; color: #fff;
+      background: #f2f2f2; border: 2px solid transparent;
+      border-radius: 14px; color: #141414;
       font-size: 4.4vh; font-weight: 700; text-align: center; outline: none;
     }
-    .s-inp::placeholder { color: #2e2e2e; font-weight: 400; }
-    .s-inp.a:focus { border-color: #4ade80; }
-    .s-inp.b:focus { border-color: #fb923c; }
-    .s-vs { font-size: 2.6vh; color: #333; letter-spacing: 0.1em; }
+    .s-inp::placeholder { color: #b3b3b3; font-weight: 400; }
+    .s-inp.a:focus { border-color: #8b5cf6; }
+    .s-inp.b:focus { border-color: #4ade80; }
+    .s-vs { font-size: 2.6vh; color: #444; letter-spacing: 0.1em; }
     .s-go {
       width: 100%; padding: 1.8vh; margin-top: 0.5vh;
-      background: #4ade80; border: none; border-radius: 40px;
-      color: #000; font-size: 3.6vh; font-weight: 700; cursor: pointer;
+      background: transparent; border: none;
+      color: #a78bfa; font-size: 3.6vh; font-weight: 700; cursor: pointer;
     }
-    .s-go:active { background: #3dbb6a; }
+    .s-go:active { color: #8b5cf6; }
 
     /* ---- GAME ---- */
     #s-game { flex-direction: column; }
 
     .half {
       width: 100%; height: 50%;
-      display: flex; align-items: center; justify-content: center;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 8vw;
       cursor: pointer; user-select: none; position: relative;
       transition: background 0.08s;
     }
@@ -66,27 +68,35 @@
     .half.b { padding-bottom: 3vh; }
     .half:active { background: rgba(255,255,255,0.05); }
 
-    .g-col { display: flex; flex-direction: column; align-items: center; gap: 0.4vh; width: 14vw; }
-    .g-num { font-size: 8vh; font-weight: 700; color: #777; line-height: 1; }
-    .s-row { display: flex; gap: 1.4vw; }
-    .s-pip { font-size: 3.2vh; font-weight: 600; color: #252525; min-width: 3vw; text-align: center; line-height: 1; }
-    .s-pip.p { color: #555; }
-    .s-pip.w { color: #999; }
+    .g-col { display: flex; flex-direction: column; align-items: flex-end; gap: 0.8vh; }
+    .g-badge {
+      min-width: 6vw; font-size: 6vh; font-weight: 800; line-height: 1; text-align: right;
+    }
+    .half.t .g-badge { color: #999; }
+    .half.b .g-badge { color: #a78bfa; }
 
-    .div-v { width: 1px; height: 8vh; background: #222; margin: 0 3vw; }
+    .s-row { display: flex; align-items: center; gap: 0.8vh; }
+    .s-pip {
+      min-width: 3.6vh; padding: 0.6vh 1vw; border-radius: 8px;
+      background: transparent; border: 1px solid #2a2a2a;
+      font-size: 2.2vh; font-weight: 700; color: #444; text-align: center; line-height: 1;
+    }
+    .s-pip.p { background: #1c1c1c; border-color: #333; color: #fff; }
+    .s-pip.w { background: #8b5cf6; border-color: #8b5cf6; color: #fff; }
 
-    .p-col { display: flex; flex-direction: column; align-items: center; min-width: 26vw; }
+    .p-col { display: flex; flex-direction: column; align-items: flex-start; }
     .pts { font-size: 19vh; font-weight: 700; line-height: 1; }
     .half.t .pts { color: #fff; }
-    .half.b .pts { color: #4ade80; }
-    .t-name { font-size: 2.6vh; text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.4vh; }
-    .half.t .t-name { color: #555; }
-    .half.b .t-name { color: #2a6640; }
+    .half.b .pts { color: #a78bfa; }
+    .name-row { display: flex; align-items: center; gap: 1.2vw; margin-top: 0.4vh; }
+    .t-name { font-size: 2.6vh; text-transform: uppercase; letter-spacing: 0.1em; }
+    .half.t .t-name { color: #8a8a8a; }
+    .half.b .t-name { color: #a78bfa; }
 
-    .srv { width: 1.6vh; height: 1.6vh; border-radius: 50%; margin-left: 2vw; opacity: 0; }
+    .srv { width: 1.6vh; height: 1.6vh; border-radius: 50%; opacity: 0; }
     .srv.on { opacity: 1; }
     .half.t .srv { background: #fff; }
-    .half.b .srv { background: #4ade80; }
+    .half.b .srv { background: #a78bfa; }
 
     .net-line { position: absolute; left: 10%; right: 10%; top: 50%; height: 1px; background: #1e1e1e; transform: translateY(-50%); pointer-events: none; z-index: 5; }
 
@@ -105,12 +115,13 @@
     /* ---- OVERLAYS ---- */
     .ov { display: none; position: absolute; inset: 0; background: rgba(0,0,0,0.94); flex-direction: column; align-items: center; justify-content: center; gap: 2vh; z-index: 30; }
     .ov.on { display: flex; }
-    .ov-title { font-size: 5vh; font-weight: 700; color: #4ade80; text-align: center; padding: 0 8vw; }
+    .ov-title { font-size: 5vh; font-weight: 700; color: #a78bfa; text-align: center; padding: 0 8vw; }
     .ov-title.warn { color: #fff; }
+    .ov-scores { display: flex; gap: 3vw; font-size: 3.4vh; font-weight: 700; color: #ccc; }
     .ov-sub { font-size: 2.6vh; color: #555; }
     .ov-btns { display: flex; gap: 3vw; margin-top: 1vh; }
     .ov-btn { padding: 1.6vh 6vw; border-radius: 40px; border: none; font-size: 3.2vh; font-weight: 700; cursor: pointer; }
-    .ov-btn.y { background: #4ade80; color: #000; }
+    .ov-btn.y { background: #8b5cf6; color: #fff; }
     .ov-btn.n { background: #1e1e1e; color: #888; }
   </style>
 </head>
@@ -118,7 +129,8 @@
 
   <!-- SETUP SCREEN -->
   <div class="scr on" id="s-setup">
-    <div class="s-title">New Match</div>
+    <div class="s-eyebrow">Padel Scorer</div>
+    <div class="s-heading">New Match</div>
     <div class="s-field">
       <div class="s-lbl a">Your team</div>
       <input class="s-inp a" id="in-a" maxlength="8" placeholder="Us" autocomplete="off" />
@@ -134,39 +146,41 @@
   <!-- GAME SCREEN -->
   <div class="scr" id="s-game">
     <div class="half t" id="h-top">
+      <div class="p-col">
+        <div class="pts" id="pts-a">0</div>
+        <div class="name-row">
+          <span class="t-name" id="nm-a">Us</span>
+          <span class="srv" id="srv-a"></span>
+        </div>
+      </div>
       <div class="g-col">
-        <div class="g-num" id="g-a">0</div>
+        <div class="g-badge" id="g-a">0</div>
         <div class="s-row">
           <span class="s-pip" id="sa0">-</span>
           <span class="s-pip" id="sa1">-</span>
           <span class="s-pip" id="sa2">-</span>
         </div>
       </div>
-      <div class="div-v"></div>
-      <div class="p-col">
-        <div class="pts" id="pts-a">0</div>
-        <div class="t-name" id="nm-a">Us</div>
-      </div>
-      <div class="srv" id="srv-a"></div>
     </div>
 
     <div class="net-line"></div>
 
     <div class="half b" id="h-bot">
+      <div class="p-col">
+        <div class="pts" id="pts-b">0</div>
+        <div class="name-row">
+          <span class="t-name" id="nm-b">Them</span>
+          <span class="srv" id="srv-b"></span>
+        </div>
+      </div>
       <div class="g-col">
-        <div class="g-num" id="g-b">0</div>
+        <div class="g-badge" id="g-b">0</div>
         <div class="s-row">
           <span class="s-pip" id="sb0">-</span>
           <span class="s-pip" id="sb1">-</span>
           <span class="s-pip" id="sb2">-</span>
         </div>
       </div>
-      <div class="div-v"></div>
-      <div class="p-col">
-        <div class="pts" id="pts-b">0</div>
-        <div class="t-name" id="nm-b">Them</div>
-      </div>
-      <div class="srv" id="srv-b"></div>
     </div>
 
     <div class="ctrl-row">
@@ -177,8 +191,12 @@
     <!-- Winner overlay -->
     <div class="ov" id="ov-win">
       <div class="ov-title" id="win-txt">Us win!</div>
-      <div class="ov-sub">Match complete</div>
-      <div class="ov-btns"><button class="ov-btn y" id="btn-win-new">New Match</button></div>
+      <div class="ov-scores" id="win-scores"></div>
+      <div class="ov-sub">New game?</div>
+      <div class="ov-btns">
+        <button class="ov-btn y" id="btn-win-new">Yes</button>
+        <button class="ov-btn n" id="btn-win-no">No</button>
+      </div>
     </div>
 
     <!-- Confirm overlay -->
@@ -255,6 +273,7 @@
 
       if (st.done) {
         $('win-txt').textContent = (st.sA === 2 ? nA : nB) + ' win!';
+        $('win-scores').textContent = st.sets.map(s => s[0] + '-' + s[1]).join('   ');
         $('ov-win').classList.add('on');
       }
     }
@@ -329,6 +348,7 @@
     $('btn-yes').addEventListener('click', goSetup);
     $('btn-no').addEventListener('click', () => $('ov-confirm').classList.remove('on'));
     $('btn-win-new').addEventListener('click', goSetup);
+    $('btn-win-no').addEventListener('click', () => $('ov-win').classList.remove('on'));
 
     // ---- Service worker for offline ----
     if ('serviceWorker' in navigator) {
